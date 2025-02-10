@@ -47,6 +47,24 @@
     }
 }
 
+@keyframes uniformAppear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes uniformFadeCycle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.1;
+    }
+}
+
 /***********Animacion de aparicion***********/
 .animate-item {
     opacity: 0;
@@ -145,17 +163,10 @@ main {
     display: inline-block;
     /*animation: appeFromLeftAndAbove 1s ease forwards,
                fadeCycle 5s ease 1s infinite;*/
-    opacity: 0;
-    animation: uniformFade 5s ease infinite;         
+    animation: uniformAppear 1s ease forwards, 
+    uniformFadeCycle 2s ease 1s infinite;    
 }
-@keyframes uniformFade {
-    0%, 100% {
-        opacity: 1; /* Completamente visible */
-    }
-    50% {
-        opacity: 0.1; /* Desvanecido parcialmente */
-    }
-}
+
 
 .info-bar {
     position: absolute;
@@ -464,6 +475,8 @@ main {
 .feature-sub-container span{
     font-size: 20px;
     font-weight: bold;
+    transition: transform 0.1s ease-in-out;
+    display: inline-block;
 }
 .feature-sub-container .activa{
     border: 1px solid #00c8c8;
@@ -471,9 +484,13 @@ main {
 .feature-sub-container .activa span{
     transform: rotate(270deg);
 }
+/*
 .no-activa:hover .flecha-no-activa span {
     transform: rotate(-90deg);
     transition: transform 0.3s ease-in-out;
+}*/
+.flecha-no-activa span {
+    transform: rotate(-90deg);
 }
 .feature-card .feature-title {
     font-size: 1.7rem;
